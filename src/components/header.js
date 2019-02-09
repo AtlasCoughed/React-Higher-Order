@@ -8,10 +8,11 @@ import * as actions from '../actions';
 
 class Header extends Component {
 	authButton(){
-		if(this.props.authenticated){
-			return <button onClick={() => this.props.authenticate(false)}>Sign Out</button>;
-		}
-		return <button onClick={() => this.props.authenticate(true)}>Sign in</button>;
+		return (this.props.authenticated) ?
+			<button onClick={() =>
+				this.props.authenticate(false)}>Sign Out</button> :
+			<button onClick={() =>
+				this.props.authenticate(true)}>Sign in</button>;
 	}
 
 	render(){
